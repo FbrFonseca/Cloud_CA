@@ -3,7 +3,7 @@
 PROJECT_ID="cloud-ca-456020"
 ZONE="europe-west1-b"
 REGION="europe-west1"
-INSTANCE_NAME="cloud-ca"
+INSTANCE_NAME="cloud-ca-$(date +%s)"
 MACHINE_TYPE="e2-standard-2"
 DISK_SIZE="250gb"
 IMAGE_FAMILY="ubuntu-2004-lts"

@@ -1,0 +1,18 @@
+# GOOGLE CLOUD COMPUTE ENGINE DEPLOYMENT
+
+This script automates the process of deployment of VM instance on GCP.
+The instance will have the following configuration
+  -2 vCPUs
+  -250gb Disk
+  -Ubuntu 20.04
+  -External static IP
+  -Firewall allowing SSH and HTTP access
+To run this script (bash) you will need to have Google Cloud SDK, Compute Engine API and IAM permissions setup as in the guide on the file on this repository.
+
+# Output
+If the script runs successfully it will print the a success message and the IP of the VM.
+
+# Throubleshooting 
+If the script runs multiple times if can cause conflicts, some like the name and firewall naming are prevented by using unique names.
+
+Warning about region/zone is just that cgloud is not waiting to check if they exist and shoud not cause any issue.
