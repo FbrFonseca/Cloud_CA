@@ -2,19 +2,19 @@
 
 PROJECT_ID="cloud-ca-456020"
 ZONE="europe-west1-b"
-REGION="europe-wes1"
+REGION="europe-west1"
 INSTANCE_NAME="cloud-ca"
 MACHINE_TYPE="e2-standard-2"
 DISK_SIZE="250gb"
 IMAGE_FAMILY="ubuntu-2004-lts"
 IMAGE_PROJECT="ubuntu-os-cloud"
 STATIC_IP_NAME="${INSTANCE_NAME}-ip"
-FIREWALL_RULE_NAME="allow-http-ssh"
+FIREWALL_RULE_NAME="allow-http-ssh-$(date +%s)"
 
 gcloud config set project $PROJECT_ID
 gcloud config set compute/zone $ZONE
 
-gcloud compute address create $STATIC_IP_NAME \
+gcloud compute addresses create $STATIC_IP_NAME \
   --region=$REGION \
   --project=$PROJECT_ID
 
@@ -22,7 +22,7 @@ STATIC_IP=$(gcloud compute addresses describe $STATIC_IP_NAME \
   --region=$REGION \
   --format="get(address)")
 
-gcloud compute instaces create $INSTANCE_NAME \
+gcloud compute instances create $INSTANCE_NAME \
   --machine-type=$MACHINE_TYPE \
   --image-family=$IMAGE_FAMILY \
   --image-project=$IMAGE_PROJECT \
